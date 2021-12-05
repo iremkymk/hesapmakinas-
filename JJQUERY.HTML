@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+<body>
+ 
+    1. Sayı: 
+    <input type="text" id="txtSayi1"><br>
+    2. Sayı:
+    <input type="text" id="txtSayi2"><br>
+    <input id="r1" type="radio" name="islem" >Topla
+    <input id="r2" type="radio" name="islem" >Çıkar
+    <input id="r3" type="radio" name="islem" >Çarp
+    <input id="r4" type="radio" name="islem" >Böl
+    <br>
+    <input type="button" id="btn" value="HESAPLA"><br>
+    
+    <div id="sonuc"></div>
+    
+    <script>
+        $(document).ready(function(){
+           $("#btn").on("click",function(){
+               var sayi1=Number($("#txtSayi1").val());
+               var sayi2=Number($("#txtSayi2").val());
+               var sonuc=0;
+              if($("#r1").prop("checked")==true)
+                  {
+                      sonuc=sayi1+sayi2;
+                  }
+               else if($("#r2").prop("checked")==true)
+                  {
+                      sonuc=sayi1-sayi2;
+                  }
+               else if($("#r3").prop("checked")==true)
+                  {
+                      sonuc=sayi1*sayi2;
+                  }
+               else if($("#r4").prop("checked")==true)
+                  {
+                      sonuc=sayi1/sayi2;
+                  }
+               else
+                   {
+                       alert("Seçim Yapınız.")
+                   }
+               $("#sonuc").html(sonuc);
+           });
+        });
+    </script>
+ 
+</body>
+</html>
